@@ -11,60 +11,56 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Alex Thompson",
-    position: "CTO, TechVision",
+    name: "Uma Mounika",
+    position: "CEO at Pragyashala",
     quote:
-      "LumoScale transformed our outdated systems into a modern, scalable platform. Their expertise in DevOps and cloud architecture saved us countless hours and significantly improved our deployment process.",
+      "Lumoscale transformed our online presence completely. Our engagement rates have increased by 300% since working with them. Their SEO strategies helped us reach the top of search results.",
     image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    rating: 5,
+      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     id: 2,
-    name: "Sarah Martinez",
-    position: "Product Manager, InnovateLabs",
+    name: "Vamsi K",
+    position: "Marketing Head at Lucido Interiors",
     quote:
-      "The mobile app LumoScale built for us exceeded all expectations. The team's attention to detail and commitment to quality resulted in a product our users love. Their React Native expertise is unmatched.",
+      "The team at Lumoscale is exceptional. They helped us develop a comprehensive digital marketing strategy that doubled our conversion rates within just 3 months.",
     image:
-      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    rating: 5,
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     id: 3,
-    name: "Michael Chen",
-    position: "Founder, NextWave Solutions",
+    name: "Nancy",
+    position: "Marketing Executive of livTech",
     quote:
-      "Integrating AI into our platform seemed daunting until we partnered with LumoScale. Their team made the process seamless, delivering an intelligent solution that has revolutionized our customer service.",
+      "Outstanding service and results! Our social media following grew by 500% and our website traffic increased dramatically thanks to their targeted campaigns.",
     image:
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    rating: 5,
+      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     id: 4,
-    name: "Emma Wilson",
-    position: "Director of Operations, GrowthTech",
+    name: "Ramsai V",
+    position: "CMO at Techvalve Solutions",
     quote:
-      "The custom chatbot developed by LumoScale has dramatically improved our customer engagement metrics. Their understanding of both technology and business objectives made them the perfect partner.",
+      "Lumoscale's expertise in PPC and social media advertising helped us achieve a 250% ROI on our marketing spend. Their data-driven approach sets them apart.",
     image:
-      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    rating: 5,
+      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
-  {
-    id: 5,
-    name: "Daniel Rodriguez",
-    position: "CEO, FutureSystems",
-    quote:
-      "Working with LumoScale on our full-stack application was a game-changer for our business. Their technical expertise combined with strategic thinking helped us launch faster than expected.",
-    image:
-      "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    rating: 4,
-  },
+];
+
+const partners = [
+  { name: "GREEN CYCLE", logo: "/images/partners/green-cycle.png" },
+  { name: "Namoona Group", logo: "/images/partners/namoona.png" },
+  { name: "InternForage", logo: "/images/partners/internforage.png" },
+  { name: "Lucido Interiors", logo: "/images/partners/lucido.png" },
+  { name: "Pragyashala", logo: "/images/partners/pragyashala.png" },
+  { name: "livTech", logo: "/images/partners/livtech.png" },
+  { name: "Techvalve Solutions", logo: "/images/partners/techvalve.png" },
 ];
 
 export default function TestimonialsSection() {
@@ -140,135 +136,78 @@ export default function TestimonialsSection() {
           className="w-full"
         >
           <CarouselContent>
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <CarouselItem
                 key={testimonial.id}
                 className="md:basis-1/2 lg:basis-1/3 pl-4"
               >
-                <Card className="border-border bg-card h-full">
-                  <CardContent className="pt-6">
+                <Card className="border-border bg-card h-full flex flex-col">
+                  <CardContent className="pt-6 flex-grow">
                     <div className="relative mb-6">
-                      <Quote className="h-10 w-10 text-blue-200 dark:text-blue-950 absolute -top-2 -left-2" />
-                      <blockquote className="pl-8 relative">
-                        <p className="text-muted-foreground italic">
-                          "{testimonial.quote}"
-                        </p>
-                      </blockquote>
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold">{testimonial.name}</h4>
-                        <p className="text-sm text-muted-foreground">
-                          {testimonial.position}
-                        </p>
-                      </div>
+                      <Quote className="absolute -top-2 -left-2 h-8 w-8 text-muted-foreground/20" />
+                      <p className="italic text-muted-foreground">
+                        {testimonial.quote}
+                      </p>
                     </div>
                   </CardContent>
-                  <CardFooter className="border-t border-border pt-4">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className={`w-5 h-5 ${
-                            i < testimonial.rating
-                              ? "text-yellow-500"
-                              : "text-gray-300 dark:text-gray-600"
-                          }`}
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
+                  <div className="flex items-center gap-4 p-6 pt-0 border-t border-border mt-auto">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                    <div>
+                      <p className="font-semibold">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.position}
+                      </p>
                     </div>
-                  </CardFooter>
+                  </div>
                 </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-8">
-            <CarouselPrevious className="relative static transform-none mx-2" />
-            <div className="flex items-center gap-2 mx-4">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={`block h-2 w-2 rounded-full ${
-                    activeIndex === index
-                      ? "bg-blue-600 dark:bg-blue-400"
-                      : "bg-gray-300 dark:bg-gray-700"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-            <CarouselNext className="relative static transform-none mx-2" />
+          <div className="flex justify-center mt-8 gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`block h-2 w-2 rounded-full ${
+                  activeIndex === index
+                    ? "bg-blue-600 dark:bg-blue-400"
+                    : "bg-gray-300 dark:bg-gray-700"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </Carousel>
 
-        <div className="mt-20 grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-              98%
-            </div>
-            <p className="text-muted-foreground">Client Satisfaction</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-              50+
-            </div>
-            <p className="text-muted-foreground">Completed Projects</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-              20+
-            </div>
-            <p className="text-muted-foreground">Expert Team Members</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-              24/7
-            </div>
-            <p className="text-muted-foreground">Support & Maintenance</p>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+          <h3 className="text-2xl font-bold text-center mb-10">
+            Active Partners
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"
+              >
+                <span className="text-muted-foreground font-medium">
+                  {partner.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
