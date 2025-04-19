@@ -75,7 +75,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#services" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Chatbot Integration
+                  Chatbot Integrations
                 </Link>
               </li>
             </ul>
@@ -91,7 +91,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#team" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Our Team
+                  Our Team 
                 </Link>
               </li>
               <li>
