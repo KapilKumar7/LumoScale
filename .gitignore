@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+.bolt
+
 # testing
 /coverage
 
