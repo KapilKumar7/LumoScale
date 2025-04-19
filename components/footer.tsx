@@ -8,7 +8,6 @@ import {
   GithubIcon,
   ArrowRight,
 } from "lucide-react";
-import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,20 +18,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Link href="/" className="flex items-center gap-2">
-                <div className="relative w-8 h-8">
-                  <Image
-                    src="/logo.png"
-                    alt="LumoScale Logo"
-                    width={32}
-                    height={32}
-                    className="rounded-lg"
-                  />
+              <div className="relative w-8 h-8">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg transform rotate-45"></div>
+                <div className="absolute inset-1 bg-secondary rounded-lg transform rotate-45 flex items-center justify-center">
+                  <span className="text-blue-600 font-bold text-sm">LS</span>
                 </div>
-                <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-                  LumoScale
-                </span>
-              </Link>
+              </div>
+              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                LumoScale
+              </span>
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-md">
