@@ -182,7 +182,7 @@ export default function ContactSection() {
                   </h4>
                   <div className="flex gap-4">
                     {siteConfig.footerLinks
-                      .filter((link) =>
+                      .filter((link: { name: string }) =>
                         [
                           "twitter",
                           "linkedin",
@@ -191,7 +191,7 @@ export default function ContactSection() {
                           "github",
                         ].includes(link.name)
                       )
-                      .map((link) => {
+                      .map((link: { name: string; href: string }) => {
                         let IconComponent;
                         switch (link.name) {
                           case "twitter":

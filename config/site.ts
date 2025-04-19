@@ -11,7 +11,6 @@ const baseSiteConfig = {
   ogImage: "https://lumoscale.com/og.jpg", // Replace with your actual OG image path
   metadataBase: new URL("https://lumoscale.com"), // Replace with your actual domain
   keywords: ["full-stack development", "devops", "ai integration", "mobile app development", "react native", "next.js", "cloud architecture", "chatbot development", "digital marketing", "seo", "aso", "search engine optimization", "app store optimization", "ppc", "content marketing"], // Added keywords
-  /*
   authors: [
     {
       name: "LumoScale Team",
@@ -19,7 +18,6 @@ const baseSiteConfig = {
       // twitter: '@yourtwitterhandle', // Optional: Add Twitter handle
     }
   ],
-  */
   creator: '@lumoscale', // Replace with your Twitter handle or identifier
   themeColor: '#ffffff', // Adjust theme color if needed
   icons: {
@@ -71,6 +69,13 @@ export const siteConfig: SiteConfig = {
     siteName: baseSiteConfig.name,
     images: [`${baseSiteConfig.url}/og.jpg`], // Ensure OG image path is correct
   },
+  authors: [
+    {
+      name: "LumoScale Team",
+      url: "https://lumoscale.com", // Replace with your team/about page if applicable
+      // twitter: '@yourtwitterhandle', // Optional: Add Twitter handle
+    }
+  ],
   twitter: {
     card: "summary_large_image",
     title: baseSiteConfig.name,
