@@ -162,18 +162,6 @@ export default function ContactSection() {
                       </a>
                     </div>
                   </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPinIcon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Office</p>
-                      <address className="not-italic font-medium">
-                        {siteConfig.contact.address}
-                      </address>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-border">

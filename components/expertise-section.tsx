@@ -2,118 +2,105 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Code,
-  Database,
   Server,
-  Layers,
-  CloudCog,
-  Bot,
-  Search, // Added marketing icon
+  Database,
+  Smartphone,
+  BrainCircuit,
+  Search,
+  Megaphone,
+  BarChart,
+  Users,
+  Palette,
 } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
 
-const technologies = [
+const techSkills = [
   {
     category: "frontend",
     title: "Frontend",
     description:
-      "Creating beautiful, responsive, and high-performance user interfaces that captivate and engage.",
-    icon: <Code className="h-5 w-5" />,
+      "Creating beautiful, responsive, and high-performance user interfaces.",
+    icon: Code,
     skills: [
-      { name: "React", level: 95 },
-      { name: "Next.js", level: 90 },
-      { name: "React Native", level: 85 },
+      { name: "React / Next.js", level: 95 },
       { name: "TypeScript", level: 88 },
-      { name: "UI/UX Design", level: 82 },
+      { name: "UI/UX Design Principles", level: 82 },
+      { name: "Web Performance Optimization", level: 85 },
     ],
   },
   {
     category: "backend",
-    title: "Backend",
+    title: "Backend & Cloud",
     description:
-      "Building robust server-side applications with scalable architectures and efficient APIs.",
-    icon: <Database className="h-5 w-5" />,
+      "Building robust server-side applications and scalable cloud infrastructure.",
+    icon: Server,
     skills: [
-      { name: "Node.js", level: 92 },
-      { name: "Python", level: 88 },
-      { name: "GraphQL", level: 85 },
-      { name: "RESTful APIs", level: 94 },
-      { name: "PostgreSQL", level: 90 },
+      { name: "Node.js / Express", level: 90 },
+      { name: "Python (Django/Flask)", level: 80 },
+      { name: "AWS / GCP / Azure", level: 85 },
+      { name: "Database Management (SQL/NoSQL)", level: 88 },
     ],
   },
   {
-    category: "devops",
-    title: "DevOps",
+    category: "mobile-ai",
+    title: "Mobile & AI",
     description:
-      "Streamlining development and operations with automation, containerization, and cloud services.",
-    icon: <Server className="h-5 w-5" />,
+      "Developing cross-platform mobile apps and integrating AI solutions.",
+    icon: Smartphone,
     skills: [
-      { name: "Docker", level: 93 },
-      { name: "Kubernetes", level: 89 },
-      { name: "CI/CD", level: 91 },
-      { name: "AWS", level: 87 },
-      { name: "Azure", level: 86 },
-    ],
-  },
-  {
-    category: "fullstack",
-    title: "Full Stack",
-    description:
-      "End-to-end development expertise from database to UI, creating seamless integrated experiences.",
-    icon: <Layers className="h-5 w-5" />,
-    skills: [
-      { name: "MERN Stack", level: 92 },
-      { name: "JAMstack", level: 88 },
-      { name: "Serverless", level: 86 },
-      { name: "System Design", level: 90 },
-      { name: "Performance Optimization", level: 85 },
-    ],
-  },
-  {
-    category: "cloud",
-    title: "Cloud",
-    description:
-      "Leveraging cloud platforms to build scalable, secure, and cost-effective solutions.",
-    icon: <CloudCog className="h-5 w-5" />,
-    skills: [
-      { name: "AWS Services", level: 90 },
-      { name: "Azure Services", level: 87 },
-      { name: "Cloud Architecture", level: 89 },
-      { name: "Serverless Computing", level: 88 },
-      { name: "Multi-Cloud Strategy", level: 84 },
-    ],
-  },
-  {
-    category: "ai",
-    title: "AI & ML",
-    description:
-      "Implementing intelligent systems that learn and adapt, bringing smart automation to applications.",
-    icon: <Bot className="h-5 w-5" />,
-    skills: [
-      { name: "TensorFlow", level: 83 },
-      { name: "NLP", level: 85 },
-      { name: "Computer Vision", level: 80 },
-      { name: "ML Integration", level: 87 },
-      { name: "AI Chatbots", level: 89 },
-    ],
-  },
-  {
-    category: "marketing",
-    title: "Digital Marketing",
-    description:
-      "Driving growth through data-driven digital marketing strategies, including SEO and ASO.",
-    icon: <Search className="h-5 w-5" />,
-    skills: [
-      { name: "SEO Strategy", level: 90 },
-      { name: "ASO (App Store Optimization)", level: 88 },
-      { name: "PPC Management", level: 85 },
-      { name: "Content Marketing", level: 87 },
-      { name: "Social Media Strategy", level: 84 },
-      { name: "Analytics & Reporting", level: 89 },
+      { name: "React Native", level: 85 },
+      { name: "AI/ML Integration", level: 75 },
+      { name: "Chatbot Development", level: 80 },
+      { name: "Mobile Performance", level: 82 },
     ],
   },
 ];
+
+const marketingSkills = [
+  {
+    category: "seo-sem",
+    title: "SEO & SEM",
+    description:
+      "Driving organic and paid traffic through search engine optimization and marketing.",
+    icon: Search,
+    skills: [
+      { name: "On-Page & Off-Page SEO", level: 92 },
+      { name: "Technical SEO", level: 88 },
+      { name: "Google Ads / PPC", level: 90 },
+      { name: "Keyword Research & Strategy", level: 85 },
+    ],
+  },
+  {
+    category: "social-content",
+    title: "Social & Content",
+    description:
+      "Engaging audiences through strategic social media and content marketing.",
+    icon: Megaphone,
+    skills: [
+      { name: "Social Media Strategy", level: 90 },
+      { name: "Content Creation & Marketing", level: 87 },
+      { name: "Community Management", level: 85 },
+      { name: "Influencer Marketing", level: 80 },
+    ],
+  },
+  {
+    category: "analytics-cro",
+    title: "Analytics & CRO",
+    description:
+      "Utilizing data to optimize campaigns and improve conversion rates.",
+    icon: BarChart,
+    skills: [
+      { name: "Google Analytics / Tag Manager", level: 93 },
+      { name: "Conversion Rate Optimization (CRO)", level: 88 },
+      { name: "A/B Testing", level: 85 },
+      { name: "Data Analysis & Reporting", level: 90 },
+    ],
+  },
+];
+
+const allSkills = [...techSkills, ...marketingSkills];
 
 export default function ExpertiseSection() {
   return (
@@ -136,7 +123,7 @@ export default function ExpertiseSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Technical Skills & Proficiency
+            Skills & Proficiency
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -145,185 +132,45 @@ export default function ExpertiseSection() {
             viewport={{ once: true }}
             className="text-lg text-muted-foreground"
           >
-            Our team excels across the full technology stack, with specialized
-            expertise in modern frameworks, cloud infrastructure, and
-            cutting-edge AI technologies.
+            A blend of technical mastery and digital marketing acumen to drive
+            your success across all fronts.
           </motion.p>
         </div>
 
-        <Tabs defaultValue="frontend" className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-1">
-              {technologies.map((tech) => (
-                <TabsTrigger
-                  key={tech.category}
-                  value={tech.category}
-                  className="flex items-center gap-2"
-                >
-                  {tech.icon}
-                  <span className="hidden md:inline">{tech.title}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
-
-          {technologies.map((tech) => (
-            <TabsContent
-              key={tech.category}
-              value={tech.category}
-              className="mt-0"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {allSkills.map((category, index) => (
+            <motion.div
+              key={category.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-card p-6 rounded-lg shadow-sm border border-border"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-card border border-border rounded-xl overflow-hidden shadow-md"
-              >
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8">
-                    <div
-                      className={`w-16 h-16 bg-${
-                        tech.category === "marketing" ? "yellow" : "blue"
-                      }-100 dark:bg-${
-                        tech.category === "marketing" ? "yellow" : "blue"
-                      }-900/30 rounded-xl flex items-center justify-center`}
-                    >
-                      {tech.icon &&
-                        React.cloneElement(tech.icon, {
-                          className: `h-8 w-8 text-${
-                            tech.category === "marketing" ? "yellow" : "blue"
-                          }-600 dark:text-${
-                            tech.category === "marketing" ? "yellow" : "blue"
-                          }-400`,
-                        })}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2">
-                        {tech.title} Expertise
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {tech.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-6">
-                      {tech.skills
-                        .slice(0, Math.ceil(tech.skills.length / 2))
-                        .map((skill, index) => (
-                          <div key={index}>
-                            <div className="flex justify-between mb-2">
-                              <span className="font-medium">{skill.name}</span>
-                              <span className="text-muted-foreground">
-                                {skill.level}%
-                              </span>
-                            </div>
-                            <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: `${skill.level}%` }}
-                                transition={{ duration: 1, delay: index * 0.1 }}
-                                className={`h-full bg-gradient-to-r ${
-                                  tech.category === "marketing"
-                                    ? "from-yellow-500 to-orange-500"
-                                    : "from-blue-600 to-purple-600"
-                                } rounded-full`}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                    <div className="space-y-6">
-                      {tech.skills
-                        .slice(Math.ceil(tech.skills.length / 2))
-                        .map((skill, index) => (
-                          <div key={index}>
-                            <div className="flex justify-between mb-2">
-                              <span className="font-medium">{skill.name}</span>
-                              <span className="text-muted-foreground">
-                                {skill.level}%
-                              </span>
-                            </div>
-                            <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: `${skill.level}%` }}
-                                transition={{ duration: 1, delay: index * 0.1 }}
-                                className={`h-full bg-gradient-to-r ${
-                                  tech.category === "marketing"
-                                    ? "from-yellow-500 to-orange-500"
-                                    : "from-blue-600 to-purple-600"
-                                } rounded-full`}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-md bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                  <category.icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
-              </motion.div>
-            </TabsContent>
+                <h3 className="text-xl font-semibold">{category.title}</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-6">
+                {category.description}
+              </p>
+              <div className="space-y-4">
+                {category.skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {skill.level}%
+                      </span>
+                    </div>
+                    <Progress value={skill.level} className="h-2" />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </Tabs>
-
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-xl p-6 text-center"
-          >
-            <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
-                5+
-              </span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Years of Experience</h3>
-            <p className="text-muted-foreground">
-              Half a decade delivering exceptional software solutions across
-              industries.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-xl p-6 text-center"
-          >
-            <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-xl font-bold text-purple-600 dark:text-purple-400">
-                50+
-              </span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Completed Projects</h3>
-            <p className="text-muted-foreground">
-              Successfully delivered diverse projects for startups and
-              established companies.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-xl p-6 text-center"
-          >
-            <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-xl font-bold text-green-600 dark:text-green-400">
-                98%
-              </span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Client Satisfaction</h3>
-            <p className="text-muted-foreground">
-              Our commitment to excellence reflected in our client satisfaction
-              rate.
-            </p>
-          </motion.div>
         </div>
       </div>
     </section>

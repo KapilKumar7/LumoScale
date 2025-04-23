@@ -3,95 +3,65 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    id: 1,
-    name: "Uma Mounika",
-    position: "CEO at Pragyashala",
+    name: "Client A", // Replace with actual name
+    title: "CEO, [Company A Name]", // Replace with actual title & company
     quote:
-      "Lumoscale transformed our online presence completely. Our engagement rates have increased by 300% since working with them. Their SEO strategies helped us reach the top of search results.",
-    image:
-      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "LumoScale's digital marketing strategy significantly boosted our online presence and lead generation. Their team is knowledgeable, responsive, and truly cares about results.",
+    avatar: "/images/avatars/avatar-1.png", // Replace with actual avatar path or use fallback
   },
   {
-    id: 2,
-    name: "Vamsi K",
-    position: "Marketing Head at Lucido Interiors",
+    name: "Client B", // Replace with actual name
+    title: "Marketing Manager, [Company B Name]", // Replace with actual title & company
     quote:
-      "The team at Lumoscale is exceptional. They helped us develop a comprehensive digital marketing strategy that doubled our conversion rates within just 3 months.",
-    image:
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "The software solution developed by LumoScale streamlined our operations and improved efficiency dramatically. Their technical expertise is top-notch.",
+    avatar: "/images/avatars/avatar-2.png", // Replace with actual avatar path or use fallback
   },
   {
-    id: 3,
-    name: "Nancy",
-    position: "Marketing Executive of livTech",
+    name: "Client C", // Replace with actual name
+    title: "Founder, [Company C Name]", // Replace with actual title & company
     quote:
-      "Outstanding service and results! Our social media following grew by 500% and our website traffic increased dramatically thanks to their targeted campaigns.",
-    image:
-      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "Working with LumoScale felt like having an extension of our own team. Their combined marketing and tech skills provided a holistic approach to our growth challenges.",
+    avatar: "/images/avatars/avatar-3.png", // Replace with actual avatar path or use fallback
   },
   {
-    id: 4,
-    name: "Ramsai V",
-    position: "CMO at Techvalve Solutions",
+    name: "Client D", // Replace with actual name
+    title: "Director, [Company D Name]", // Replace with actual title & company
     quote:
-      "Lumoscale's expertise in PPC and social media advertising helped us achieve a 250% ROI on our marketing spend. Their data-driven approach sets them apart.",
-    image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "Their SEO and content marketing efforts put us on the map. We saw a remarkable increase in organic traffic and brand visibility.",
+    avatar: "/images/avatars/avatar-4.png", // Replace with actual avatar path or use fallback
   },
-];
-
-const partners = [
-  { name: "GREEN CYCLE", logo: "/images/partners/green-cycle.png" },
-  { name: "Namoona Group", logo: "/images/partners/namoona.png" },
-  { name: "InternForage", logo: "/images/partners/internforage.png" },
-  { name: "Lucido Interiors", logo: "/images/partners/lucido.png" },
-  { name: "Pragyashala", logo: "/images/partners/pragyashala.png" },
-  { name: "livTech", logo: "/images/partners/livtech.png" },
-  { name: "Techvalve Solutions", logo: "/images/partners/techvalve.png" },
 ];
 
 export default function TestimonialsSection() {
-  const [api, setApi] = useState<CarouselApi>();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    if (!emblaApi) return;
 
-    setActiveIndex(api.selectedScrollSnap());
-
-    const handleSelect = () => {
-      setActiveIndex(api.selectedScrollSnap());
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
     };
 
-    api.on("select", handleSelect);
-
+    emblaApi.on("select", onSelect);
     return () => {
-      api.off("select", handleSelect);
+      emblaApi.off("select", onSelect);
     };
-  }, [api]);
+  }, [emblaApi]);
 
   return (
     <section
       id="testimonials"
       className="py-24 bg-secondary/50 relative overflow-hidden"
     >
+      {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/0 to-background/0" />
-
       <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
 
@@ -122,92 +92,72 @@ export default function TestimonialsSection() {
             viewport={{ once: true }}
             className="text-lg text-muted-foreground"
           >
-            Our success is measured by our clients' satisfaction. Here's what
-            they have to say about working with us.
+            Hear directly from businesses we've helped transform and grow.
           </motion.p>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          setApi={setApi}
-          className="w-full"
-        >
-          <CarouselContent>
-            {testimonials.map((testimonial) => (
-              <CarouselItem
-                key={testimonial.id}
-                className="md:basis-1/2 lg:basis-1/3 pl-4"
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-4"
               >
-                <Card className="border-border bg-card h-full flex flex-col">
-                  <CardContent className="pt-6 flex-grow">
-                    <div className="relative mb-6">
-                      <Quote className="absolute -top-2 -left-2 h-8 w-8 text-muted-foreground/20" />
-                      <p className="italic text-muted-foreground">
-                        {testimonial.quote}
-                      </p>
+                <div className="bg-card border border-border rounded-xl p-6 h-full flex flex-col justify-between shadow-sm">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                        />
+                      ))}
                     </div>
-                  </CardContent>
-                  <div className="flex items-center gap-4 p-6 pt-0 border-t border-border mt-auto">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
+                    <blockquote className="text-muted-foreground italic mb-6">
+                      "{testimonial.quote}"
+                    </blockquote>
+                  </div>
+                  <div className="flex items-center gap-4 mt-auto">
+                    <Avatar>
+                      <AvatarImage
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                      />
+                      <AvatarFallback>
+                        {testimonial.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
                     <div>
                       <p className="font-semibold">{testimonial.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        {testimonial.position}
+                        {testimonial.title}
                       </p>
                     </div>
                   </div>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="flex justify-center mt-8 gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => api?.scrollTo(index)}
-                className={`block h-2 w-2 rounded-full ${
-                  activeIndex === index
-                    ? "bg-blue-600 dark:bg-blue-400"
-                    : "bg-gray-300 dark:bg-gray-700"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </Carousel>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-24"
-        >
-          <h3 className="text-2xl font-bold text-center mb-10">
-            Active Partners
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"
-              >
-                <span className="text-muted-foreground font-medium">
-                  {partner.name}
-                </span>
+                </div>
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => emblaApi?.scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === selectedIndex
+                  ? "bg-blue-600 scale-125"
+                  : "bg-muted hover:bg-muted-foreground/50"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
