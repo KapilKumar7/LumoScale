@@ -52,7 +52,7 @@ const baseSiteConfig = {
   ],
   contact: {
     address: "Gachibowli, Hyderabad, India",
-    email: "Lumoscale@gmail.com", // Updated email
+    email: "contact@lumoscale.com", // Updated email
     phone: "+91 8919053970", // Updated phone/WhatsApp
     whatsapp: "+91 8919053970", // Updated WhatsApp
   }
