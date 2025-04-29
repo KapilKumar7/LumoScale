@@ -1,13 +1,16 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/ui/theme-provider';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import Header from "@/components/header"; // Import the Header component
+import Footer from "@/components/footer"; // Assuming Footer is also needed
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'LumoScale | Software Agency',
-  description: 'Premium software development agency specializing in DevOps, React Native, Full-stack, AI Apps, and Chatbot Integration',
+  title: "LumoScale | Software Agency",
+  description:
+    "Premium software development agency specializing in DevOps, React Native, Full-stack, AI Apps, and Chatbot Integration",
 };
 
 export default function RootLayout({
@@ -19,7 +22,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <Header /> {/* Add the Header component */}
           {children}
+          <Footer /> {/* Add the Footer component if it's not already there */}
         </ThemeProvider>
       </body>
     </html>

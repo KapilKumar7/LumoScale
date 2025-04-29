@@ -57,7 +57,9 @@ const otherMarketingServices = [
   },
   {
     title: "Creative Services",
-    icon: <TrendingUp className="h-6 w-6 text-orange-600 dark:text-orange-400" />,
+    icon: (
+      <TrendingUp className="h-6 w-6 text-orange-600 dark:text-orange-400" />
+    ),
     description: "Social creatives, video, graphics, brand identity, copy.",
   },
   {
@@ -84,7 +86,7 @@ export default function TeamSection() {
     <section id="marketing-services" className="py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -92,8 +94,8 @@ export default function TeamSection() {
             className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2"
           >
             Growth & Marketing Services
-          </motion.p>
-          <motion.h2
+          </motion.p> */}
+          {/* <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -111,7 +113,7 @@ export default function TeamSection() {
           >
             Leverage our expertise in SEO, ASO, and comprehensive digital
             marketing strategies to grow your business effectively.
-          </motion.p>
+          </motion.p> */}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -190,15 +192,15 @@ export default function TeamSection() {
             ))}
           </div>
         </motion.div>
-
+        {/* 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="mt-16 bg-secondary/50 rounded-2xl p-8 md:p-12"
-        >
-          <div className="text-center mb-12">
+        > */}
+        {/* <div className="text-center mb-12">
             <h3 className="text-2xl font-bold mb-2">
               SEO & App Store Optimization
             </h3>
@@ -226,8 +228,8 @@ export default function TeamSection() {
                 </p>
               </motion.div>
             ))}
-          </div>
-        </motion.div>
+          </div> */}
+        {/* </motion.div> */}
 
         <div className="text-center mt-16">
           <Button
