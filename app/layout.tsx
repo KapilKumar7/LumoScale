@@ -9,7 +9,7 @@ import FloatingActionButtons from "@/components/floating-action-buttons"; // Imp
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ScaleSphere | Digital Marketing & Software Solutions",
+  title: "Lumoscale | Digital Marketing & Software Solutions",
   description:
     "Innovative agency specializing in Digital Marketing, DevOps, React Native, Full-stack, AI Apps, and Chatbot Integration",
 };
