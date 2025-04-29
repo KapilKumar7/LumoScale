@@ -56,7 +56,7 @@ export default function Header() {
             Expertise
           </Link>
           <Link href="#work" className="text-foreground/80 hover:text-foreground transition-colors">
-            Our Work
+            Work
           </Link>
           <Link href="#testimonials" className="text-foreground/80 hover:text-foreground transition-colors">
             Testimonials
@@ -108,7 +108,7 @@ export default function Header() {
             Expertise
           </Link>
           <Link href="#work" className="py-2 text-foreground/80 hover:text-foreground transition-colors" onClick={toggleMenu}>
-            Our Work
+            Work
           </Link>
           <Link href="#testimonials" className="py-2 text-foreground/80 hover:text-foreground transition-colors" onClick={toggleMenu}>
             Testimonials
