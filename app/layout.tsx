@@ -8,9 +8,9 @@ import Footer from "@/components/footer"; // Assuming Footer is also needed
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LumoScale | Software Agency",
+  title: "ScaleSphere | Digital Marketing & Software Solutions",
   description:
-    "Premium software development agency specializing in DevOps, React Native, Full-stack, AI Apps, and Chatbot Integration",
+    "Innovative agency specializing in Digital Marketing, DevOps, React Native, Full-stack, AI Apps, and Chatbot Integration",
 };
 
 export default function RootLayout({
