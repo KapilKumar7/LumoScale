@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Header from "@/components/header"; // Import the Header component
 import Footer from "@/components/footer"; // Assuming Footer is also needed
+import FloatingActionButtons from "@/components/floating-action-buttons"; // Import the new component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Header /> {/* Add the Header component */}
           {children}
           <Footer /> {/* Add the Footer component if it's not already there */}
+          <FloatingActionButtons /> {/* Add the floating action buttons */}
         </ThemeProvider>
       </body>
     </html>
