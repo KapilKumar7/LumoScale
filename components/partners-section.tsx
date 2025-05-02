@@ -6,12 +6,27 @@ import { Building } from "lucide-react"; // Example icon
 
 // Replace with actual partner logos or data
 const partners = [
-  { name: "Partner A", logo: "/images/partners/logo-a.png" }, // Placeholder path
-  { name: "Partner B", logo: "/images/partners/logo-b.png" }, // Placeholder path
-  { name: "Partner C", logo: "/images/partners/logo-c.png" }, // Placeholder path
-  { name: "Partner D", logo: "/images/partners/logo-d.png" }, // Placeholder path
-  { name: "Partner E", logo: "/images/partners/logo-e.png" }, // Placeholder path
-  { name: "Partner F", logo: "/images/partners/logo-f.png" }, // Placeholder path
+  {
+    name: "GREEN CYCLE",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/gc-gRUPCEYInUNItIijicx9DdlLP2S5UK.jpeg",
+  },
+  {
+    name: "Namoona Group",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nm-ZbXKSN0nDwZGRC9rNt0e8tlbUUCVBK.jpeg",
+  },
+  {
+    name: "InternForage",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/if-DwDvrleAP55Rc4Vl79nap9szZwvuMk.png",
+  },
+  {
+    name: "Lucido Interiors",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/li.jpg-GXbIeeIAwmAI7Jo5BbzvptsvLqWylv.jpeg",
+  },
+  {
+    name: "Pragyashala",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ps.jpg-CgEhnrBFhG8nZM5jC43tpn8Db1Jxmh.jpeg",
+  },
+  // Add more partners if needed
 ];
 
 export default function PartnersSection() {
@@ -28,7 +43,9 @@ export default function PartnersSection() {
           Trusted by Innovative Companies
         </motion.h2>
 
-        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+        <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10">
+          {" "}
+          {/* Increased gap */}
           {partners.map((partner, index) => (
             <motion.div
               key={index}
@@ -36,16 +53,25 @@ export default function PartnersSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative h-10 w-32 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              // Adjusted classes: removed grayscale/opacity, added flex column, centered items
+              className="flex flex-col items-center gap-y-2 transition-all duration-300"
             >
-              {/* Use Image component if you have logos */}
-              <Image
-                src={partner.logo}
-                alt={`${partner.name} Logo`}
-                layout="fill"
-                objectFit="contain"
-                title={partner.name} // Tooltip for accessibility
-              />
+              {/* Adjusted container for image */}
+              <div className="relative h-12 w-36">
+                {" "}
+                {/* Increased height/width slightly */}
+                <Image
+                  src={partner.logo}
+                  alt={`${partner.name} Logo`}
+                  layout="fill"
+                  objectFit="contain"
+                  title={partner.name} // Tooltip for accessibility
+                />
+              </div>
+              {/* Added span for partner name */}
+              <span className="text-sm text-muted-foreground font-medium">
+                {partner.name}
+              </span>
               {/* Fallback if no logo image */}
               {/* <div className="flex items-center justify-center h-full w-full">
                 <Building className="h-8 w-8 text-muted-foreground" />
