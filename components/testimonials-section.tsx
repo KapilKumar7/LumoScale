@@ -9,32 +9,28 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Client A", // Replace with actual name
-    title: "CEO, [Company A Name]", // Replace with actual title & company
+    name: "M. Sundeep Reddy",
+    title: "Managing Director, Lucido Interiors",
     quote:
-      "LumoScale's digital marketing strategy significantly boosted our online presence and lead generation. Their team is knowledgeable, responsive, and truly cares about results.",
-    avatar: "/images/avatars/avatar-1.png", // Replace with actual avatar path or use fallback
+      "Lumoscale brought our website vision to life with a modern and minimal design. The process was effortless, and their team stayed attentive to every detail. Really happy with the result.",
+    avatar: "/images/avatars/avatar-placeholder.png", // Replace with actual avatar path or use fallback
+    link: "https://lucidointeriors.in",
   },
   {
-    name: "Client B", // Replace with actual name
-    title: "Marketing Manager, [Company B Name]", // Replace with actual title & company
+    name: "Guntireddi Rithendra",
+    title: "Founder, Intern Forage",
     quote:
-      "The software solution developed by LumoScale streamlined our operations and improved efficiency dramatically. Their technical expertise is top-notch.",
-    avatar: "/images/avatars/avatar-2.png", // Replace with actual avatar path or use fallback
+      "As an edtech brand, our website needed to be clean, easy to navigate, and student-friendly — Lumoscale delivered just that. Their approach was organized and seamless.",
+    avatar: "/images/avatars/avatar-placeholder.png", // Replace with actual avatar path or use fallback
+    link: "https://internforage.com",
   },
   {
-    name: "Client C", // Replace with actual name
-    title: "Founder, [Company C Name]", // Replace with actual title & company
+    name: "Aditya",
+    title: "Strategic Edge Research",
     quote:
-      "Working with LumoScale felt like having an extension of our own team. Their combined marketing and tech skills provided a holistic approach to our growth challenges.",
-    avatar: "/images/avatars/avatar-3.png", // Replace with actual avatar path or use fallback
-  },
-  {
-    name: "Client D", // Replace with actual name
-    title: "Director, [Company D Name]", // Replace with actual title & company
-    quote:
-      "Their SEO and content marketing efforts put us on the map. We saw a remarkable increase in organic traffic and brand visibility.",
-    avatar: "/images/avatars/avatar-4.png", // Replace with actual avatar path or use fallback
+      "The team was quick, professional, and flexible throughout the process. We now have a simple, polished website that’s easy to manage and aligned with our goals.",
+    avatar: "/images/avatars/avatar-placeholder.png", // Replace with actual avatar path or use fallback
+    link: "https://strategicedgeresearch.com",
   },
 ];
 
@@ -135,6 +131,17 @@ export default function TestimonialsSection() {
                       <p className="text-sm text-muted-foreground">
                         {testimonial.title}
                       </p>
+                      {/* Optional: Add link if available */}
+                      {/* {testimonial.link && (
+                        <a
+                          href={testimonial.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-blue-600 hover:underline"
+                        >
+                          {testimonial.link.replace(/^https?:\/\//, "")}
+                        </a>
+                      )} */}
                     </div>
                   </div>
                 </div>
