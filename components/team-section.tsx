@@ -115,14 +115,14 @@ export default function TeamSection() {
             marketing strategies to grow your business effectively.
           </motion.p> */}
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-8 text-left bg-card border border-border rounded-lg p-6 shadow-sm"
-          >
-            <h4 className="text-xl font-semibold mb-3 text-center text-primary">
+            className="mt-8 text-left bg-card border border-border rounded-lg p-6 shadow-sm" */}
+          
+            {/* <h4 className="text-xl font-semibold mb-3 text-center text-primary">
               WHO WE ARE
             </h4>
             <p className="text-muted-foreground mb-4">
@@ -152,7 +152,7 @@ export default function TeamSection() {
               With LumoScale, you don’t just get a service—you get a dedicated
               partner committed to your success.
             </p>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         <motion.div
