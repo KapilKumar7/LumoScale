@@ -22,10 +22,10 @@ const partners = [
     name: "Lucido Interiors",
     logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/li.jpg-GXbIeeIAwmAI7Jo5BbzvptsvLqWylv.jpeg",
   },
-  {
-    name: "Pragyashala",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ps.jpg-CgEhnrBFhG8nZM5jC43tpn8Db1Jxmh.jpeg",
-  },
+  // {
+  //   name: "Pragyashala",
+  //   logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ps.jpg-CgEhnrBFhG8nZM5jC43tpn8Db1Jxmh.jpeg",
+  // },
   // Add more partners if needed
 ];
 
